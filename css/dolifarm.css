@@ -1,0 +1,29 @@
+.grid-container-dashboard {
+
+  display: grid;
+
+  grid-template-columns: auto auto auto;
+
+  grid-template-rows: 200px 200px;
+
+  gap: 10px;
+
+  background-color: #ffffff; 
+
+  padding: 10px;
+
+}
+
+
+
+.grid-container-dashboard > div {
+
+  background-color: #999999; 
+
+  text-align: center;
+
+  padding: 10px 0;
+
+  /* font-size: 30px; */
+
+}
