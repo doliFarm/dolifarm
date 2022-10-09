@@ -69,8 +69,8 @@ class modDoliFarm extends DolibarrModules
 		$this->descriptionlong = "DoliFarmDescription";
 
 		// Author
-		$this->editor_name = 'Editor name';
-		$this->editor_url = 'https://www.example.com';
+		$this->editor_name = 'Luigi Grillo';
+		$this->editor_url = 'https://www.dolifarm.com';
 
 		// Possible values for version are: 'development', 'experimental', 'dolibarr', 'dolibarr_deprecated' or a version string like 'x.y.z'
 		$this->version = '1.0';
