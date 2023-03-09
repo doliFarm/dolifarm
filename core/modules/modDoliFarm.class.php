@@ -328,7 +328,7 @@ class modDoliFarm extends DolibarrModules
 		$this->menu[$r++] = array(
 			'fk_menu'=>'', // '' if this is a top menu. For left menu, use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy' where xxx is mainmenucode and yyy is a leftmenucode
 			'type'=>'top', // This is a Top menu entry
-			'titre'=>'ModuleDoliFarmName',
+			'titre'=>'Traceability',
 			'prefix' => img_picto('', $this->picto, 'class="paddingright pictofixedwidth valignmiddle"'),
 			'mainmenu'=>'dolifarm',
 			'leftmenu'=>'',
@@ -900,11 +900,11 @@ class modDoliFarm extends DolibarrModules
 		//$result4=$extrafields->addExtraField('dolifarm_myattr4', "New Attr 4 label", 'select',  1,  3, 'thirdparty',   0, 1, '', array('options'=>array('code1'=>'Val1','code2'=>'Val2','code3'=>'Val3')), 1,'', 0, 0, '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
 		//$result5=$extrafields->addExtraField('dolifarm_myattr5', "New Attr 5 label", 'text',    1, 10, 'user',         0, 0, '', '', 1, '', 0, 0, '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
 
-		// (I use now the dictionary )$result1=$extrafields->addExtraField('farm', "Farm", 'boolean', 100,  3, 'thirdparty',0,1, '', '', 1, '', 1, $langs->trans("HelpFarmExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
-		$result2=$extrafields->addExtraField('bodyca', "BodyCA", 'select',  101,  3, 'thirdparty',   0, 0, '', array('options'=>array('1'=>'ICEA','2'=>'Suolo e salute','3'=>'Codex srl','4'=>'Ecogruppo','5'=>'AgroQualita','6'=>'BioAgricert','7'=>'Bios srl','8'=>'IMC','9'=>'QCI','10'=>'CCPB','11'=>'AIAB','12'=>'Codex','13'=>'SIDEL','14'=>'Ecocert')), 1,'', 1, $langs->trans("HelpBodyCAExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
+		// (I use now the dictionary )$result1=$extrafields->addExtraField('farm', "Farm", 'boolean', 100,  3, 'thirdparty',0,1, '', '', 1, '', 1, $langs->trans("HelpFarmExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');	
+		$result2=$extrafields->addExtraField('bodyca', "BodyCA", 'select',  101,  3, 'thirdparty',   0, 0, '', array('options'=>array('1'=>'ICEA','2'=>'Suolo e salute','3'=>'Codex srl','4'=>'Ecogruppo','5'=>'AgroQualita','6'=>'BioAgricert','7'=>'Bios srl','8'=>'IMC','9'=>'QCI','10'=>'CCPB','11'=>'AIAB','12'=>'Codex','13'=>'SIDEL','14'=>'Ecocert','15'=>'CSQA')), 1,'', 1, $langs->trans("HelpBodyCAExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
 		$result3=$extrafields->addExtraField('licensenumber', "LicenseNumber", 'varchar', 102,  30, 'thirdparty',1, 0, '', '', 1, '', 1, $langs->trans("HelpLicenseNumberExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
 		// (I prefer to use the standard Forniteur code) $result4=$extrafields->addExtraField('farmtracecode', "FarmTraceCode", 'varchar', 103,  30, 'thirdparty',0, 0, '', '', 1, '', 1, $langs->trans("HelpFarmTraceCodeExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
-		$result5=$extrafields->addExtraField('certificateexpirationdata', "CertificateExpirationDate", 'date', 104, '', 'thirdparty',0, 0, '', '', 1, '', 1, $langs->trans("HelpCertificateExpirationDataExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
+		$result5=$extrafields->addExtraField("CertificateExpirationDate", 'date', 104, '', 'thirdparty',0, 0, '', '', 1, '', 1, $langs->trans("HelpCertificateExpirationDataExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
 		$result6=$extrafields->addExtraField('agronomist', "Agronomist", 'sellist', 105,  30, 'societe',0, 0, '', 'a:1:{s:7:"options";a:1:{s:20:"user:firstname:rowid";N;}}', 1, '', 1,$langs->trans("HelpAgronomistExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
 
 		// Permissions

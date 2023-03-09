@@ -8,6 +8,10 @@ INSERT INTO `llx_dolifarm_dictionary` ( `label`, `code`,  `active`, `module`, `p
 ('Certified','DF_PLSTAT',1,'dolifarm',10),
 ('Conversion','DF_PLSTAT',1,'dolifarm',10),
 ('Conventional','DF_PLSTAT',1,'dolifarm',10),
-('Uknown','DF_PLSTAT',1,'dolifarm',10);
+('Uknown','DF_PLSTAT',1,'dolifarm',10),
+('hectares','DF_SIZEUNIT',1,'dolifarm',10),
+('square metres','DF_SIZEUNIT',1,'dolifarm',10),
+('are','DF_SIZEUNIT',1,'dolifarm',10);
+
 
 
