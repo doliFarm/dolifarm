@@ -905,7 +905,8 @@ class modDoliFarm extends DolibarrModules
 		$result3=$extrafields->addExtraField('licensenumber', "LicenseNumber", 'varchar', 102,  30, 'thirdparty',1, 0, '', '', 1, '', 1, $langs->trans("HelpLicenseNumberExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
 		// (I prefer to use the standard Forniteur code) $result4=$extrafields->addExtraField('farmtracecode', "FarmTraceCode", 'varchar', 103,  30, 'thirdparty',0, 0, '', '', 1, '', 1, $langs->trans("HelpFarmTraceCodeExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
 		$result5=$extrafields->addExtraField("CertificateExpirationDate", 'date', 104, '', 'thirdparty',0, 0, '', '', 1, '', 1, $langs->trans("HelpCertificateExpirationDataExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
-		$result6=$extrafields->addExtraField('agronomist', "Agronomist", 'sellist', 105,  30, 'societe',0, 0, '', 'a:1:{s:7:"options";a:1:{s:20:"user:firstname:rowid";N;}}', 1, '', 1,$langs->trans("HelpAgronomistExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
+		$result6=$extrafields->addExtraField('agronomist', "Agronomist", 'sellist', 105,  30, 'societe',0,  0, '', 'a:1:{s:7:"options";a:1:{s:20:"user:firstname:rowid";N;}}', 1, '', 1,$langs->trans("HelpAgronomistExtrafield"), '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
+		$result7=$extrafields->addExtraField('description', "Description", 'html', 106, 2048, 'societe', 0, 1, '', '', 1, '', 1, 0, '', '', 'dolifarm@dolifarm', '$conf->dolifarm->enabled');
 
 		// Permissions
 		$this->remove($options);
