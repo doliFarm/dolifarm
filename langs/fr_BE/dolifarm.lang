@@ -9,8 +9,8 @@ Plots=Parcelles
 Coltures=Cultures
 Colture=Cultures
 Dashboard=Panneau de contrôle
-FarmsNetwork=Répertoire des fermes
-=
+FarmsNetwork=Liste des fermes
+
 doliLOGISTIC=Logistique
 CMRGenerator=CMR
 PricesListGenerator=Listes de prix
