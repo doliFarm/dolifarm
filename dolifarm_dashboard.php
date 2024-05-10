@@ -57,6 +57,7 @@ if (!$res) {
 
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formfile.class.php';
 require_once DOL_DOCUMENT_ROOT.'/core/class/html.formother.class.php';
+// include_once DOL_DOCUMENT_ROOT."/custom/dolifarm/core/boxes/mymodulewidget1.php";
 
 // Load translation files required by the page
 $langs->loadLangs(array("dolifarm@dolifarm"));
@@ -81,7 +82,6 @@ $now = dol_now();
 /*
  * Actions
  */
-
 
 if (GETPOST('addbox')) {
 	// Add box (when submit is done from a form when ajax disabled)

@@ -25,10 +25,19 @@ CertificatesBoxDescription=Certificats d'exploitation expirant
 NearlyExpired=Presque expirés
 OrganicCertificationBody=Organisme de contrôle
 CertificateExpirationDate=Date d'expiration
-BoxHarvestDescription=Récoltes (derniers %)
+
+BoxHarvestDescription=Récoltes (derniers %s)
 BoxHarvestHeader=Récoltes (derniers %s)
 ManifacturingOrderBoxDescription=Traitement des commandes
-ManifacturingOrderBoxHeader=Ordres de traitement (derniers %)
+ManifacturingOrderBoxHeader=Ordres de traitement (derniers %s)
 CropPlansBoxDescription=Plans de production
-CropPlansBoxHeader=Plans de production (derniers %)
+CropPlansBoxHeader=Plans de production (derniers %s)
+BoxCertificatesHeader=Certificats biologiques expirent (derniers %s)
+
 Traceability=Traçabilité
+EffectifM=Effectif masculin
+EffectifMHelp=Indiquer le nombre de travailleurs
+EffectifF=Effectif féminine
+EffectifFHelp=Indiquer le nombre de travailleuses
+
+

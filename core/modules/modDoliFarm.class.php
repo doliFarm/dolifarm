@@ -254,25 +254,23 @@ class modDoliFarm extends DolibarrModules
 			  0 => array(
 			      'file' => 'box_harvests.php@dolifarm',
 			      'note' => 'Last Harvests info',
-			      'enabledbydefaulton' => 'dolifarm',
+			      'enabledbydefaulton' => 'Dolifarm',
 			  ),
 			  1 => array(
 			      'file' => 'box_certificates.php@dolifarm',
-			      'note' => 'Last Harvests info',
-			      'enabledbydefaulton' => 'dolifarm',
+			      'note' => 'Last farm certificate info',
+			      'enabledbydefaulton' => 'Dolifarm',
 			  ),
 			  2 => array(
 			      'file' => 'box_manifacturingorder.php@dolifarm',
-			      'note' => 'Last Harvests info',
-			      'enabledbydefaulton' => 'dolifarm',
+			      'note' => 'Last manifacturing info',
+			      'enabledbydefaulton' => 'Dolifarm',
 			  ),
  			  3 => array(
 			      'file' => 'box_cropplans.php@dolifarm',
-			      'note' => 'Last Harvests info',
-			      'enabledbydefaulton' => 'dolifarm',
+			      'note' => 'Last croplans info',
+			      'enabledbydefaulton' => 'Dolifarm',
 			  )
-
-			//  ...
 		);
 
 		// Cronjobs (List of cron jobs entries to add when module is enabled)
@@ -305,17 +303,17 @@ class modDoliFarm extends DolibarrModules
 		/* BEGIN MODULEBUILDER PERMISSIONS */
 		$this->rights[$r][0] = $this->numero . sprintf("%02d", $r + 1); // Permission id (must not be already used)
 		$this->rights[$r][1] = 'Read objects of DoliFarm'; // Permission label
-		$this->rights[$r][4] = 'myobject';
+		$this->rights[$r][4] = 'dolitrace';
 		$this->rights[$r][5] = 'read'; // In php code, permission will be checked by test if ($user->rights->dolifarm->myobject->read)
 		$r++;
 		$this->rights[$r][0] = $this->numero . sprintf("%02d", $r + 1); // Permission id (must not be already used)
 		$this->rights[$r][1] = 'Create/Update objects of DoliFarm'; // Permission label
-		$this->rights[$r][4] = 'myobject';
+		$this->rights[$r][4] = 'dolitrace';
 		$this->rights[$r][5] = 'write'; // In php code, permission will be checked by test if ($user->rights->dolifarm->myobject->write)
 		$r++;
 		$this->rights[$r][0] = $this->numero . sprintf("%02d", $r + 1); // Permission id (must not be already used)
 		$this->rights[$r][1] = 'Delete objects of DoliFarm'; // Permission label
-		$this->rights[$r][4] = 'myobject';
+		$this->rights[$r][4] = 'dolitrace';
 		$this->rights[$r][5] = 'delete'; // In php code, permission will be checked by test if ($user->rights->dolifarm->myobject->delete)
 		$r++;
 		/* END MODULEBUILDER PERMISSIONS */
@@ -336,9 +334,9 @@ class modDoliFarm extends DolibarrModules
 			'langs'=>'dolifarm@dolifarm', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 			'position'=>1000 + $r,
 			'enabled'=>'$conf->dolifarm->enabled', // Define condition to show or hide menu entry. Use '$conf->dolifarm->enabled' if entry must be visible if module is enabled.
-			'perms'=>'1', // Use 'perms'=>'$user->rights->dolifarm->myobject->read' if you want your menu with a permission rules
+			'perms'=>'$user->rights->dolifarm->dolitrace->read', //  if you want your menu with a permission rules
 			'target'=>'',
-			'user'=>2, // 0=Menu for internal users, 1=external users, 2=both
+			'user'=>0, // 0=Menu for internal users, 1=external users, 2=both
 		);
 		/* END MODULEBUILDER TOPMENU */
 		
@@ -356,7 +354,7 @@ class modDoliFarm extends DolibarrModules
 			'enabled'=>'$conf->dolifarm->enabled',  // Define condition to show or hide menu entry. Use '$conf->dolicert->enabled' if entry must be visible if module is enabled.
 			'perms'=>'1',   // '$user->rights->dolifarm->myobject->read',			                // Use 'perms'=>'$user->rights->dolicert->level1->level2' if you want your menu with a permission rules
 			'target'=>'',
-			'user'=>2,				                // 0=Menu for internal users, 1=external users, 2=both
+			'user'=>1,				                // 0=Menu for internal users, 1=external users, 2=both
 		);	
 		/* **** doliTRACE  Menu **** */
 		$this->menu[$r++]=array(
@@ -530,6 +528,22 @@ class modDoliFarm extends DolibarrModules
 			'target'=>'',
 			'user'=>2,				                // 0=Menu for internal users, 1=external users, 2=both
 		);*/
+		
+		$this->menu[$r++] = array(
+                'fk_menu' => 'fk_mainmenu=dolifarm',
+                'mainmenu' => 'dolifarm',
+                'leftmenu' => 'ViewMap',
+                'type' => 'left',
+                'titre' => 'ViewMap',
+                'url' => '/viewmap/index.php?idmenu=32&mainmenu=dolifarm&leftmenu=',
+                'langs' => 'viewmap@viewmap',
+                'position' => 1000+$r,
+                'enabled' => '$conf->viewmap->enabled',
+                'perms' => '($conf->global->MAIN_USE_ADVANCED_PERMS && $user->rights->viewmap->read) || (! $conf->global->MAIN_USE_ADVANCED_PERMS)',
+                'target' => '',
+                'user' => 2, 
+        );
+    
 		
 		
 		/* **** doliLOGISTIC DASHBOARD Menu **** */

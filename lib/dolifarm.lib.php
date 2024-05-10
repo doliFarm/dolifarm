@@ -154,14 +154,70 @@ function listExpiringCertificate($interval=10,$type=0) {
 		while ($i < $num ) {
 			$obj = $db->fetch_object($resql);
 			$farm->fetch_optionals($obj->rowid);
-			$d = num_between_day($now,$farm->array_options['options_certificateexpirationdata']);
+			$d = num_between_day($now,$farm->array_options['options_certificateexpirationdate']);
 			if ($d < $interval) {
 			   $farmList[$j]["farmid"] = $obj->rowid;
 			   $farmList[$j]["expirationDays"] = $d;
+			   $farmList[$j]["bodyCA"] = $farm->array_options['options_bodyca'];
+			   $farmList[$j]["expirationdate"] = $farm->array_options['options_certificateexpirationdate'];
 			   $j++;
 			}
 			$i++;
 			dol_syslog("****listExpiringCertificate: Farm: ".$farm->nom." days: ".$d,LOG_DEBUG);
 		}
+		if ($j) {
+			/* TO DO avoid the same messages 
+			if (!isset($_COOKIE["DOLHIDEMESSAGE"."certificateexpirationdate"])) {
+				 setcookie("DOLHIDEMESSAGE"."certificateexpirationdate", "certificateexpirationdate", time()+60*60*24*1);
+			}  */
+			$datecol = array_column($farmList, 'expirationdate');
+			array_multisort($datecol, SORT_ASC, $farmList);
+			setEventMessages($langs->trans("CertificateExpiration",$j,$interval,DOL_URL_ROOT."/custom/dolitrace/farms.php?sortfield=ef.certificateexpirationdate"), null, 'mesgs',"DOLHIDEMESSAGE".'certificateexpirationdate',1);
+		}
 		return $farmList;
+	}
+	
+		
+	function bodyCA($id,$soc){
+		global  $conf, $langs,$db;
+		$extrafields = new ExtraFields($db);
+		// fetch optionals attributes and labels
+		$extrafields->fetch_name_optionals_label($soc->table_element);		
+		$soc->fetch($id);
+		$sql = "SELECT t.param FROM ".MAIN_DB_PREFIX."extrafields as t";
+		$sql.= " WHERE t.name = 'bodyca'";
+		$res = $db->query($sql);
+		if ($res) {
+		  if ($db->num_rows($res)) {
+				 $f = $db->fetch_object($res);
+		  }
+		}
+		$data = unserialize($f->param);
+		return $data['options'][$id];
+	}
+	
+	function filePublicShare($f){
+		/*
+		global  $conf, $langs,$db;
+		
+		
+		  $sql = 'SELECT * FROM '..'_ecm_files WHERE filename LIKE $filearray[0]["fullname"]';
+                
+				$sql = 'UPDATE '..'_ecm_files SET share = '..' WHERE '..'_ecm_files.rowid ="'.$filenameRowId.'"';
+
+		$extrafields = new ExtraFields($db);
+		// fetch optionals attributes and labels
+		$extrafields->fetch_name_optionals_label($soc->table_element);		
+		$soc->fetch($id);
+		$sql = "SELECT t.param FROM ".MAIN_DB_PREFIX."extrafields as t";
+		$sql.= " WHERE t.name = 'bodyca'";
+		$res = $db->query($sql);
+		if ($res) {
+		  if ($db->num_rows($res)) {
+				 $f = $db->fetch_object($res);
+		  }
+		}
+		$data = unserialize($f->param);
+		return $data['options'][$id];
+		*/
 	}

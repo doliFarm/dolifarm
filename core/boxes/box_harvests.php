@@ -100,9 +100,11 @@ class box_harvests extends ModeleBoxes
 		$this->boxlabel = $langs->transnoentitiesnoconv("HarvestsWidget");
 
 		$this->param = $param;
-
-		//$this->enabled = $conf->global->FEATURES_LEVEL > 0;         // Condition when module is enabled or not
-		//$this->hidden = ! ($user->rights->dolifarm->myobject->read);   // Condition when module is visible by user (test on permission)
+		
+		// Condition when module is enabled or not
+		 $this->enabled = getDolGlobalInt('MAIN_FEATURES_LEVEL') > 0;
+		// Condition when module is visible by user (test on permission)
+		 $this->hidden = true ; //!$user->hasRight('dolifarm', 'Dolifarm', 'read');
 	}
 
 	/**
@@ -174,14 +176,24 @@ class box_harvests extends ModeleBoxes
 															1 => array( // TR
 															'tr' => 'class="left"',
 															'td' => 'class=bold',
-															'text' => $langs->trans('Yield')
+															'text' => $langs->trans('TrCode')
 															),
 															2 => array( // TR
 															'tr' => 'class="left"',
 															'td' => 'class=bold',
-															'text' => $langs->trans('Date')
+															'text' => $langs->trans('HarvestName')
 															),
 															3 => array( // TR
+															'tr' => 'class="left"',
+															'td' => 'class=bold',
+															'text' => $langs->trans('Yield')
+															),
+															4 => array( // TR
+															'tr' => 'class="left"',
+															'td' => 'class=bold',
+															'text' => $langs->trans('Date')
+															),
+															5 => array( // TR
 															'tr' => 'class="left"',
 															'td' => 'class=bold',
 															'text' => $langs->trans('Status')
@@ -220,13 +232,21 @@ class box_harvests extends ModeleBoxes
 																),
 																1 => array( // TR
 																'tr' => 'class="left"',
-																'text' => $objlist[$i]['yield']
+																'text' => $objlist[$i]['tracecode']
 																),
 																2 => array( // TR
 																'tr' => 'class="left"',
-																'text' => dol_print_date(dol_stringtotime($objlist[$i]['date']))
+																'text' => $objlist[$i]['label']
 																),
 																3 => array( // TR
+																'tr' => 'class="left"',
+																'text' => $objlist[$i]['yield']
+																),
+																4 => array( // TR
+																'tr' => 'class="left"',
+																'text' => dol_print_date(dol_stringtotime($objlist[$i]['date']))
+																),
+																5 => array( // TR
 																'tr' => 'class="left"',
 																'text' => ($objlist->status == 1) ? img_picto($langs->trans("low"), 'low'): img_picto($langs->trans("Ok"), 'statut4')
 																)

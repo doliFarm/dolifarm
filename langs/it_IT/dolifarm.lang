@@ -28,13 +28,16 @@ HelpBodyCAExtrafield=Organismo di controllo BIO
 CertificateExpirationDate = Data scadenza certificato
 HelpCertificateExpirationDateExtrafield=Data di scadenza del certificato di conformità bio
 LicenseNumber=Codice Operatore
-HelpLicenseNumberExtrafield=Codice Ooperatore assegnato dall'ente di controllo bio
 Agronomist=Agronomo
 HelpAgronomistExtrafield=Riferimento Agronomo che segue l'azienda
+HelpLicenseNumberExtrafield=Codice Ooperatore assegnato dall'ente di controllo bio
 BoxHarvestDescription=Raccolte (Ultime %s)
 BoxHarvestHeader=Raccolte (Ultime %s)
+BoxCertificatesHeader=Certificati Bio in scadenza (Ultimi %s)
 ManifacturingOrderBoxDescription=Ordini di lavorazione
 ManifacturingOrderBoxHeader=Ordini di lavorazione (Ultimi %s)
 CropPlansBoxDescription=Piani di produzione
 CropPlansBoxHeader=Piani di produzione (Ultimi %s)
 Traceability=Tracciabilità
+ExpirationDate=Data di Scadenza
+CertificateExpiration=Attenzione, trovate %s aziende con certificato in scadenza entro %s giorni <a href=%s>Vedi la lista aziende</a>
